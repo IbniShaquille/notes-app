@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Notes App
 
-## Getting Started
+### Panduan Instalasi
 
-First, run the development server:
+#### Prasyarat
+Sebelum memulai instalasi, pastikan Anda telah menginstal:
+- Node.js (disarankan versi LTS)
+- PostgreSQL
+- Git
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+#### Langkah-langkah Instalasi
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Clone Repository**
+   Pertama, clone repository Notes App dari GitHub:
+   ```bash
+   git clone https://github.com/IbniShaquille/notes-app.git
+   cd notes-app
+   ```
+2. **Install Dependencies**
+   Instal semua dependencies yang diperlukan untuk aplikasi:
+   ```bash
+   npm install
+   ```
+3. **Konfigurasi Database PostgreSQL**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   - Buat database baru di PostgreSQL. Anda dapat melakukannya melalui command line atau menggunakan tool GUI seperti pgAdmin.
+     ```sql
+     CREATE DATABASE notes_app;
+     ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   - Buat tabel untuk menyimpan catatan:
+     ```sql
+     CREATE TABLE notes (
+       id SERIAL PRIMARY KEY,
+       title VARCHAR(255) NOT NULL,
+       body TEXT,
+       createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+     );
+     ```
+4. **Konfigurasi Environment Variable**
+   Buat file `.env` di root direktori proyek dan tambahkan konfigurasi berikut:
+   ```json
+     DATABASE_URL=postgresql://<username>:<password>@localhost:5432/notes_app
+     user=<username>
+     password=<password>
+     host=localhost
+     port=5432
+     database=notes_app
+   ```
+   Gantilah `<username>` dan `<password>` dengan kredensial PostgreSQL Anda.
+5. **Jalankan Aplikasi**
+   Jalankan aplikasi secara lokal:
+   ```bash
+   npm run dev
+   ```
