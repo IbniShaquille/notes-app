@@ -39,7 +39,7 @@ Sebelum memulai instalasi, pastikan Anda telah menginstal:
      ```
 4. **Konfigurasi Environment Variable**
    Buat file `.env` di root direktori proyek dan tambahkan konfigurasi berikut:
-   ```json
+   ```bash
      DATABASE_URL=postgresql://<username>:<password>@localhost:5432/notes_app
      user=<username>
      password=<password>
@@ -53,3 +53,42 @@ Sebelum memulai instalasi, pastikan Anda telah menginstal:
    ```bash
    npm run dev
    ```
+
+### Tech Stack
+
+**Frontend:**
+- **Next.js:** Framework React untuk membuat aplikasi web dengan fitur server-side rendering dan static site generation.
+- **JavaScript:** Bahasa pemrograman yang digunakan untuk pengembangan frontend.
+- **Chakra-UI:** Library komponen UI untuk React yang memudahkan pembuatan antarmuka pengguna yang responsif dan dapat diakses.
+
+**Backend:**
+- **PostgreSQL:** Database relasional yang digunakan untuk menyimpan data catatan.
+- **Rest API:** Antarmuka pemrograman aplikasi yang digunakan untuk komunikasi antara frontend dan backend.
+
+### API Documentation
+
+- **Endpoint: Get All Notes**
+  - **URL:** /api/notes
+  - **Method:** GET
+  - **Description:** Mengambil semua catatan.
+
+- **Endpoint: Get Note by ID**
+  - **URL:** /api/notes/:id
+  - **Method:** GET
+  - **Description:** Mengambil catatan berdasarkan ID.
+
+- **Endpoint: Create Note**
+  - **URL:** /api/notes
+  - **Method:** POST
+  - **Description:** Menambahkan catatan baru.
+
+- **Endpoint: Update Note**
+  - **URL:** /api/notes/:id
+  - **Method:** PUT
+  - **Description:** Mengubah catatan berdasarkan ID.
+
+- **Endpoint: Delete Note**
+  - **URL:** /api/notes/:id
+  - **Method:** DELETE
+  - **Description:** Menghapus catatan berdasarkan ID.
+
